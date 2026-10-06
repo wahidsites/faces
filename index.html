@@ -1,0 +1,4171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="FACES — refined aesthetic and skincare products.">
+<title>FACES — Aesthetic, Refined.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#080808;
+  --surface:#101010;
+  --surface2:#151515;
+  --surface3:#1d1d1d;
+  --white:#f7f4ed;
+  --muted:#918e87;
+  --muted2:#6f6c66;
+  --line:rgba(255,255,255,.09);
+  --line2:rgba(255,255,255,.16);
+  --gold:#c9aa72;
+  --gold2:#e4cc9a;
+  --green:#8eb89a;
+  --red:#d77d7d;
+  --max:1240px;
+  --radius:22px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"DM Sans",sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+body.no-scroll{
+  overflow:hidden;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(var(--max),calc(100% - 48px));
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  position:fixed;
+  inset:0 0 auto;
+  z-index:1000;
+  border-bottom:1px solid transparent;
+  background:rgba(8,8,8,.7);
+  backdrop-filter:blur(24px);
+  transition:.3s;
+}
+
+.header.scrolled{
+  border-color:var(--line);
+  background:rgba(8,8,8,.9);
+}
+
+.nav{
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:700;
+  letter-spacing:.2em;
+  white-space:nowrap;
+}
+
+.logo span{
+  color:var(--gold);
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:31px;
+  font-size:13px;
+  color:#c5c1b9;
+}
+
+.nav-links a{
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:white;
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.icon-btn{
+  position:relative;
+  width:42px;
+  height:42px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.025);
+  color:white;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  transition:.2s;
+}
+
+.icon-btn:hover{
+  background:var(--surface3);
+  border-color:var(--line2);
+}
+
+.cart-count{
+  position:absolute;
+  right:-2px;
+  top:-3px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--gold);
+  color:#111;
+  font-size:10px;
+  font-weight:700;
+  display:grid;
+  place-items:center;
+}
+
+.mobile-toggle{
+  display:none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:850px;
+  padding:150px 0 100px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:800px;
+  height:800px;
+  right:-320px;
+  top:-120px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,170,114,.15),transparent 68%);
+  pointer-events:none;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  left:-350px;
+  bottom:-400px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(140,110,72,.1),transparent 70%);
+  pointer-events:none;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:80px;
+  align-items:center;
+}
+
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--gold2);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  margin-bottom:22px;
+}
+
+.eyebrow:before{
+  content:"";
+  width:32px;
+  height:1px;
+  background:var(--gold);
+}
+
+.hero h1{
+  max-width:760px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(58px,7vw,94px);
+  line-height:.94;
+  letter-spacing:-.045em;
+  font-weight:500;
+}
+
+.hero h1 em{
+  color:var(--gold2);
+  font-style:normal;
+}
+
+.hero-copy{
+  max-width:560px;
+  margin-top:30px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:11px;
+  margin-top:35px;
+}
+
+.btn{
+  min-height:48px;
+  padding:13px 21px;
+  border:0;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-weight:600;
+  transition:.2s;
+}
+
+.btn-primary{
+  background:var(--white);
+  color:#111;
+}
+
+.btn-primary:hover{
+  background:var(--gold2);
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  color:white;
+  border:1px solid var(--line2);
+  background:rgba(255,255,255,.025);
+}
+
+.btn-outline:hover{
+  background:var(--surface2);
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:#111;
+}
+
+.btn-gold:hover{
+  background:var(--gold2);
+}
+
+.hero-visual{
+  min-height:610px;
+  border-radius:32px;
+  border:1px solid var(--line);
+  overflow:hidden;
+  position:relative;
+  background:
+    radial-gradient(circle at 62% 27%,rgba(239,216,177,.27),transparent 19%),
+    radial-gradient(circle at 42% 66%,rgba(133,106,74,.22),transparent 36%),
+    linear-gradient(135deg,#302b25,#111 63%);
+}
+
+.hero-visual:before{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:500px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-53%) rotate(-11deg);
+  border-radius:48% 52% 44% 56%;
+  background:
+    linear-gradient(135deg,rgba(239,224,198,.34),rgba(66,51,38,.1));
+  filter:blur(1px);
+  box-shadow:40px 40px 100px rgba(0,0,0,.35);
+}
+
+.hero-product{
+  position:absolute;
+  right:27px;
+  bottom:27px;
+  left:27px;
+  padding:22px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(0,0,0,.43);
+  backdrop-filter:blur(18px);
+}
+
+.hero-product small{
+  color:var(--gold2);
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.hero-product h3{
+  margin-top:7px;
+  font-family:"Playfair Display",serif;
+  font-size:31px;
+  font-weight:500;
+}
+
+/* =========================
+   TRUST
+========================= */
+
+.trust{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.trust-item{
+  padding:27px 22px;
+  border-right:1px solid var(--line);
+}
+
+.trust-item:last-child{
+  border-right:0;
+}
+
+.trust-number{
+  color:var(--gold);
+  font-size:11px;
+  margin-bottom:5px;
+}
+
+.trust-item strong{
+  display:block;
+  font-size:14px;
+}
+
+.trust-item span{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:3px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  padding:105px 0;
+}
+
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:30px;
+  margin-bottom:45px;
+}
+
+.section-heading h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,5vw,58px);
+  line-height:1;
+  font-weight:500;
+  letter-spacing:-.035em;
+}
+
+.section-heading p{
+  max-width:470px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.category{
+  min-height:300px;
+  padding:29px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:linear-gradient(135deg,#211e1a,#0f0f0f);
+}
+
+.category:nth-child(2){
+  background:linear-gradient(135deg,#24231f,#101010);
+}
+
+.category:nth-child(3){
+  background:linear-gradient(135deg,#201f1c,#0d0d0d);
+}
+
+.category:before{
+  content:"";
+  position:absolute;
+  width:210px;
+  height:210px;
+  right:25px;
+  top:20px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(224,198,151,.19),transparent 68%);
+}
+
+.category small{
+  color:var(--gold2);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.category h3{
+  margin-top:6px;
+  font-family:"Playfair Display",serif;
+  font-size:33px;
+  font-weight:500;
+}
+
+.category p{
+  max-width:340px;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* =========================
+   SHOP
+========================= */
+
+.shop-controls{
+  display:flex;
+  gap:9px;
+  margin-bottom:27px;
+}
+
+.search-wrap{
+  position:relative;
+  flex:1;
+}
+
+.search-wrap span{
+  position:absolute;
+  left:15px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#777;
+}
+
+.search{
+  width:100%;
+  height:48px;
+  padding:0 15px 0 42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:white;
+  outline:none;
+}
+
+.search:focus,
+.select:focus{
+  border-color:rgba(201,170,114,.55);
+}
+
+.select{
+  height:48px;
+  min-width:180px;
+  padding:0 14px;
+  background:var(--surface);
+  color:white;
+  border:1px solid var(--line);
+  border-radius:12px;
+  outline:none;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.product{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:21px;
+  background:var(--surface);
+  transition:.25s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+  border-color:var(--line2);
+}
+
+.product-image{
+  height:270px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(221,194,149,.25),transparent 24%),
+    linear-gradient(135deg,#29251f,#111);
+}
+
+.product-tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:6px 9px;
+  border-radius:999px;
+  background:rgba(0,0,0,.48);
+  color:var(--gold2);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.product-art{
+  width:104px;
+  height:150px;
+  border-radius:10px 10px 18px 18px;
+  position:relative;
+  background:linear-gradient(90deg,#bcb4a4,#fff9e9,#d6cdbb);
+  box-shadow:0 25px 55px rgba(0,0,0,.55);
+}
+
+.product-art:before{
+  content:"FACES";
+  position:absolute;
+  inset:52px -20px;
+  display:grid;
+  place-items:center;
+  color:#333;
+  font-size:10px;
+  letter-spacing:.2em;
+  transform:rotate(-90deg);
+}
+
+.product-art:after{
+  content:"";
+  position:absolute;
+  width:64px;
+  height:22px;
+  top:-17px;
+  left:20px;
+  border-radius:4px;
+  background:#262626;
+}
+
+.product-body{
+  padding:20px;
+}
+
+.product-type{
+  color:var(--muted2);
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.product-body h3{
+  margin-top:6px;
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:500;
+}
+
+.product-body p{
+  min-height:42px;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.product-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:17px;
+}
+
+.price{
+  font-weight:600;
+}
+
+.product-btn{
+  padding:9px 14px;
+  border-radius:999px;
+  border:1px solid var(--line2);
+  color:white;
+  background:transparent;
+}
+
+.product-btn:hover{
+  background:white;
+  color:#111;
+}
+
+/* =========================
+   FEATURE BANNER
+========================= */
+
+.feature{
+  border:1px solid rgba(201,170,114,.23);
+  border-radius:30px;
+  padding:55px;
+  background:
+    radial-gradient(circle at 90% 50%,rgba(201,170,114,.12),transparent 42%),
+    #111;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:30px;
+  align-items:center;
+}
+
+.feature h2{
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  font-size:43px;
+}
+
+.feature h2 em{
+  color:var(--gold2);
+  font-style:normal;
+}
+
+.feature p{
+  max-width:680px;
+  margin-top:9px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.step{
+  padding:29px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:20px;
+}
+
+.step-number{
+  color:var(--gold);
+  font-size:11px;
+}
+
+.step h3{
+  margin:18px 0 8px;
+  font-family:"Playfair Display",serif;
+  font-size:27px;
+  font-weight:500;
+}
+
+.step p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-list{
+  max-width:900px;
+  margin:auto;
+}
+
+.faq{
+  border-top:1px solid var(--line);
+}
+
+.faq:last-child{
+  border-bottom:1px solid var(--line);
+}
+
+.faq-question{
+  width:100%;
+  padding:23px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  border:0;
+  background:none;
+  color:white;
+  text-align:left;
+  font-size:15px;
+}
+
+.faq-icon{
+  color:var(--gold);
+  font-size:20px;
+  transition:.2s;
+}
+
+.faq-answer{
+  display:none;
+  max-width:760px;
+  padding:0 0 23px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.faq.open .faq-answer{
+  display:block;
+}
+
+.faq.open .faq-icon{
+  transform:rotate(45deg);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:58px 0 30px;
+  border-top:1px solid var(--line);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr repeat(3,1fr);
+  gap:40px;
+}
+
+.footer-brand p{
+  max-width:320px;
+  margin-top:14px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.footer-col h4{
+  margin-bottom:15px;
+  color:var(--gold);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+
+.footer-col a{
+  display:block;
+  margin:9px 0;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.footer-col a:hover{
+  color:white;
+}
+
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin-top:45px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  color:#666;
+  font-size:10px;
+}
+
+/* =========================
+   OVERLAY / MODALS
+========================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  padding:20px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.76);
+  backdrop-filter:blur(12px);
+}
+
+.overlay.active{
+  display:flex;
+}
+
+.modal{
+  width:min(720px,100%);
+  max-height:92vh;
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:#111;
+  box-shadow:0 40px 120px rgba(0,0,0,.7);
+}
+
+.modal.large{
+  width:min(950px,100%);
+}
+
+.modal-header{
+  padding:23px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.modal-header h2{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  font-weight:500;
+}
+
+.close{
+  width:38px;
+  height:38px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:transparent;
+  color:white;
+  font-size:20px;
+}
+
+.modal-content{
+  padding:24px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group.full-width{
+  grid-column:1/-1;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:7px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  outline:none;
+  background:#090909;
+  color:white;
+}
+
+.form-group textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:var(--gold);
+}
+
+.full{
+  width:100%;
+}
+
+/* =========================
+   ACCOUNT
+========================= */
+
+.account-tabs{
+  display:flex;
+  gap:5px;
+  padding:5px;
+  margin-bottom:22px;
+  border-radius:12px;
+  background:var(--surface);
+}
+
+.account-tab{
+  flex:1;
+  padding:10px;
+  border:0;
+  border-radius:8px;
+  background:none;
+  color:var(--muted);
+}
+
+.account-tab.active{
+  color:white;
+  background:var(--surface3);
+}
+
+.account-dashboard{
+  display:none;
+}
+
+.account-dashboard.active{
+  display:block;
+}
+
+.account-welcome{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:25px;
+}
+
+.account-welcome h3{
+  font-family:"Playfair Display",serif;
+  font-size:31px;
+  font-weight:500;
+}
+
+.account-layout{
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:14px;
+}
+
+.account-nav{
+  padding:8px;
+  height:max-content;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface);
+}
+
+.account-nav button{
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:9px;
+  background:none;
+  color:var(--muted);
+  text-align:left;
+  font-size:12px;
+}
+
+.account-nav button.active,
+.account-nav button:hover{
+  color:white;
+  background:var(--surface3);
+}
+
+.account-panel{
+  padding:23px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--surface);
+}
+
+.account-panel h3{
+  margin-bottom:17px;
+  font-family:"Playfair Display",serif;
+  font-size:28px;
+  font-weight:500;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.stat{
+  padding:17px;
+  border-radius:13px;
+  background:var(--surface2);
+}
+
+.stat small{
+  color:var(--muted);
+  font-size:10px;
+}
+
+.stat strong{
+  display:block;
+  margin-top:4px;
+  font-size:23px;
+}
+
+.order-card{
+  padding:17px;
+  margin-bottom:10px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.order-info strong{
+  display:block;
+}
+
+.order-info small{
+  color:var(--muted);
+}
+
+.status{
+  display:inline-flex;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:10px;
+}
+
+.status.transit{
+  background:rgba(201,170,114,.12);
+  color:var(--gold2);
+}
+
+.status.delivered{
+  background:rgba(142,184,154,.12);
+  color:var(--green);
+}
+
+.status.processing{
+  background:rgba(130,160,205,.12);
+  color:#9db8df;
+}
+
+.empty{
+  padding:45px 10px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* =========================
+   TRACKING
+========================= */
+
+.tracking-summary{
+  padding:18px;
+  margin-bottom:25px;
+  border-radius:15px;
+  background:var(--surface2);
+}
+
+.tracking-summary strong{
+  font-size:17px;
+}
+
+.tracking-summary p{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.tracking{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  margin:38px 0;
+}
+
+.tracking:before{
+  content:"";
+  position:absolute;
+  left:8%;
+  right:8%;
+  top:13px;
+  height:2px;
+  background:#292929;
+}
+
+.track-step{
+  width:25%;
+  position:relative;
+  z-index:1;
+  text-align:center;
+}
+
+.track-dot{
+  width:27px;
+  height:27px;
+  margin:auto;
+  border:6px solid #111;
+  border-radius:50%;
+  background:#2b2b2b;
+}
+
+.track-step.done .track-dot{
+  background:var(--gold);
+}
+
+.track-step.current .track-dot{
+  box-shadow:0 0 0 5px rgba(201,170,114,.12);
+}
+
+.track-step span{
+  display:block;
+  margin-top:9px;
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.cart-thumb{
+  width:60px;
+  height:60px;
+  flex:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#29251f,#111);
+  display:grid;
+  place-items:center;
+}
+
+.cart-thumb:after{
+  content:"F";
+  color:var(--gold2);
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+}
+
+.cart-info{
+  flex:1;
+}
+
+.cart-info strong{
+  display:block;
+  font-size:13px;
+}
+
+.cart-info small{
+  color:var(--muted);
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.qty button{
+  width:27px;
+  height:27px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:none;
+  color:white;
+}
+
+.cart-bottom{
+  display:flex;
+  justify-content:space-between;
+  padding-top:20px;
+  margin-top:4px;
+  font-size:17px;
+}
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+}
+
+.checkout-card{
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:var(--surface);
+}
+
+.checkout-card h3{
+  margin-bottom:18px;
+  font-family:"Playfair Display",serif;
+  font-size:26px;
+  font-weight:500;
+}
+
+.checkout-summary{
+  position:sticky;
+  top:15px;
+  height:max-content;
+}
+
+.summary-line{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:10px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.summary-total{
+  display:flex;
+  justify-content:space-between;
+  padding-top:15px;
+  margin-top:10px;
+  border-top:1px solid var(--line);
+  font-size:18px;
+}
+
+/* =========================
+   CHAT
+========================= */
+
+.chat-launcher{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:2500;
+  width:59px;
+  height:59px;
+  border:0;
+  border-radius:50%;
+  background:var(--gold);
+  color:#111;
+  font-size:21px;
+  box-shadow:0 18px 55px rgba(201,170,114,.25);
+}
+
+.chat-window{
+  position:fixed;
+  z-index:2500;
+  right:24px;
+  bottom:95px;
+  width:380px;
+  height:570px;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:23px;
+  background:#111;
+  box-shadow:0 30px 100px rgba(0,0,0,.65);
+}
+
+.chat-window.active{
+  display:flex;
+}
+
+.chat-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px;
+  border-bottom:1px solid var(--line);
+}
+
+.ai-avatar{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--gold);
+  color:#111;
+  font-weight:700;
+}
+
+.chat-head small{
+  display:block;
+  color:var(--green);
+  font-size:10px;
+}
+
+.chat-close{
+  margin-left:auto;
+  border:0;
+  background:none;
+  color:#777;
+  font-size:20px;
+}
+
+.chat-messages{
+  flex:1;
+  padding:16px;
+  overflow:auto;
+}
+
+.message{
+  max-width:84%;
+  padding:11px 13px;
+  margin-bottom:9px;
+  border-radius:15px;
+  font-size:12px;
+  white-space:pre-line;
+}
+
+.message.ai{
+  background:var(--surface2);
+  border-bottom-left-radius:4px;
+  color:#ddd;
+}
+
+.message.user{
+  margin-left:auto;
+  background:var(--gold);
+  color:#111;
+  border-bottom-right-radius:4px;
+}
+
+.chat-input{
+  display:flex;
+  gap:7px;
+  padding:11px;
+  border-top:1px solid var(--line);
+}
+
+.chat-input input{
+  flex:1;
+  min-width:0;
+  padding:11px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#080808;
+  color:white;
+  outline:none;
+}
+
+.chat-input button{
+  width:42px;
+  border:0;
+  border-radius:10px;
+  background:white;
+  color:#111;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  z-index:5000;
+  transform:translate(-50%,120px);
+  padding:12px 19px;
+  border-radius:999px;
+  background:white;
+  color:#111;
+  font-size:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+  transition:.3s;
+}
+
+.toast.show{
+  transform:translate(-50%,0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+  .nav-links{
+    display:none;
+  }
+
+  .mobile-toggle{
+    display:grid;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:130px;
+  }
+
+  .hero-visual{
+    min-height:480px;
+  }
+
+  .products,
+  .categories{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .account-layout{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:650px){
+  .container{
+    width:calc(100% - 28px);
+  }
+
+  section{
+    padding:75px 0;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:125px 0 75px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .hero-visual{
+    min-height:390px;
+  }
+
+  .trust-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-item:nth-child(2){
+    border-right:0;
+  }
+
+  .trust-item:nth-child(-n+2){
+    border-bottom:1px solid var(--line);
+  }
+
+  .categories,
+  .products,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .section-heading{
+    display:block;
+  }
+
+  .section-heading h2{
+    margin-bottom:14px;
+  }
+
+  .shop-controls{
+    flex-direction:column;
+  }
+
+  .select{
+    width:100%;
+  }
+
+  .feature{
+    grid-template-columns:1fr;
+    padding:30px;
+  }
+
+  .feature h2{
+    font-size:35px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+  }
+
+  .chat-window{
+    width:calc(100% - 28px);
+    right:14px;
+    bottom:84px;
+    height:520px;
+  }
+
+  .chat-launcher{
+    right:14px;
+    bottom:14px;
+  }
+
+  .form-grid,
+  .checkout-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .account-welcome{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .order-card{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .tracking{
+    margin:30px 0;
+  }
+
+  .tracking:before{
+    left:12%;
+    right:12%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header" id="header">
+  <div class="container nav">
+
+    <a href="#" class="logo">FACES<span>.</span></a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="openAccount()" aria-label="Account">
+        ◯
+      </button>
+
+      <button class="icon-btn" onclick="focusSearch()" aria-label="Search">
+        ⌕
+      </button>
+
+      <button class="icon-btn" onclick="openCart()" aria-label="Basket">
+        ♡
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="icon-btn mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">
+        ☰
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="eyebrow">FACES / UK</div>
+
+      <h1>
+        A more refined
+        <em>approach</em>
+        to aesthetics.
+      </h1>
+
+      <p class="hero-copy">
+        Discover thoughtfully selected aesthetic, skincare and
+        beauty essentials, presented with a simpler shopping
+        experience from FACES.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#shop" class="btn btn-primary">
+          Explore collection →
+        </a>
+
+        <button class="btn btn-outline" onclick="openAccount()">
+          Track my order
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-product">
+        <small>The FACES standard</small>
+        <h3>Quality. Simplicity. Precision.</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TRUST -->
+
+<div class="trust">
+  <div class="container trust-grid">
+
+    <div class="trust-item">
+      <div class="trust-number">01</div>
+      <strong>Thoughtfully selected</strong>
+      <span>A considered FACES collection</span>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-number">02</div>
+      <strong>UK focused</strong>
+      <span>Built around UK customers</span>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-number">03</div>
+      <strong>Tracked delivery</strong>
+      <span>Follow your order from dispatch</span>
+    </div>
+
+    <div class="trust-item">
+      <div class="trust-number">04</div>
+      <strong>Customer support</strong>
+      <span>Help whenever you need it</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">THE FACES COLLECTION</div>
+        <h2>Made for modern routines.</h2>
+      </div>
+
+      <p>
+        A clean, considered collection of skincare, beauty and
+        aesthetic essentials — designed around a better customer
+        experience.
+      </p>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <small>01 / Skin</small>
+        <h3>Skin essentials</h3>
+        <p>
+          Everyday products selected to complement modern
+          skincare routines.
+        </p>
+      </div>
+
+      <div class="category">
+        <small>02 / Beauty</small>
+        <h3>Beauty, refined</h3>
+        <p>
+          Carefully selected beauty essentials without the clutter.
+        </p>
+      </div>
+
+      <div class="category">
+        <small>03 / FACES</small>
+        <h3>The essentials</h3>
+        <p>
+          A growing collection built around quality, simplicity
+          and consistency.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SHOP -->
+
+<section id="shop">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">SHOP FACES</div>
+        <h2>The collection.</h2>
+      </div>
+
+      <p>
+        Browse the current FACES collection. Product availability
+        and purchasing requirements are displayed at checkout.
+      </p>
+    </div>
+
+    <div class="shop-controls">
+
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input
+          id="searchInput"
+          class="search"
+          placeholder="Search the collection..."
+          oninput="renderProducts()"
+        >
+      </div>
+
+      <select
+        id="categoryFilter"
+        class="select"
+        onchange="renderProducts()"
+      >
+        <option value="all">All products</option>
+        <option value="skin">Skin</option>
+        <option value="beauty">Beauty</option>
+        <option value="essentials">Essentials</option>
+      </select>
+
+    </div>
+
+    <div class="products" id="products"></div>
+
+  </div>
+</section>
+
+
+<!-- FEATURE -->
+
+<section>
+  <div class="container">
+
+    <div class="feature">
+
+      <div>
+        <div class="eyebrow">FACES ACCOUNT</div>
+
+        <h2>
+          Your orders,
+          <em>all in one place.</em>
+        </h2>
+
+        <p>
+          Create a customer account to view previous orders,
+          see your order status and follow delivery progress
+          once tracking becomes available.
+        </p>
+      </div>
+
+      <button class="btn btn-primary" onclick="openAccount()">
+        My account →
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- HOW -->
+
+<section id="how">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">THE EXPERIENCE</div>
+        <h2>Simple by design.</h2>
+      </div>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <span class="step-number">01</span>
+        <h3>Choose your products.</h3>
+        <p>
+          Browse the collection, read the product information
+          and add what you want to your basket.
+        </p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">02</span>
+        <h3>Checkout securely.</h3>
+        <p>
+          Enter your delivery details and complete checkout
+          through the secure payment system connected to FACES.
+        </p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">03</span>
+        <h3>Track your order.</h3>
+        <p>
+          Sign into your account to see the latest order status,
+          dispatch information and delivery tracking.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">SUPPORT</div>
+        <h2>Questions, answered.</h2>
+      </div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>How do I track my order?</span>
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-answer">
+          Sign into your FACES account and open the Orders section.
+          Your order status and carrier tracking information will
+          appear when available.
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>Do I need an account to shop?</span>
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-answer">
+          FACES can support guest checkout, although creating an
+          account makes it easier to view your order history and
+          track future orders.
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>How will I know when my order is dispatched?</span>
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-answer">
+          Once an order has been dispatched, its status can be
+          updated in your FACES account and the available tracking
+          details can be shown there.
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          <span>How can I contact FACES?</span>
+          <span class="faq-icon">+</span>
+        </button>
+
+        <div class="faq-answer">
+          Use the FACES AI assistant for general questions or
+          connect the website's support contact to your customer
+          service system before launch.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="logo">FACES<span>.</span></div>
+
+        <p>
+          A modern customer-first destination for thoughtfully
+          selected aesthetic, skincare and beauty essentials.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Account</h4>
+        <a href="#" onclick="openAccount();return false;">My account</a>
+        <a href="#" onclick="openAccount();return false;">My orders</a>
+        <a href="#" onclick="openAccount();return false;">Track order</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="#faq">Delivery</a>
+        <a href="#faq">Returns</a>
+        <a href="#faq">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 FACES. All rights reserved.</span>
+      <span>UK · Aesthetics · Beauty · Skincare</span>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- =========================
+     ACCOUNT MODAL
+========================= -->
+
+<div class="overlay" id="accountOverlay">
+
+  <div class="modal">
+
+    <div class="modal-header">
+      <h2>FACES Account</h2>
+      <button class="close" onclick="closeOverlay('accountOverlay')">×</button>
+    </div>
+
+    <div class="modal-content">
+
+      <!-- AUTH -->
+
+      <div id="authArea">
+
+        <div class="account-tabs">
+
+          <button
+            class="account-tab active"
+            onclick="switchAuth('login',this)"
+          >
+            Sign in
+          </button>
+
+          <button
+            class="account-tab"
+            onclick="switchAuth('register',this)"
+          >
+            Create account
+          </button>
+
+        </div>
+
+
+        <div id="loginForm">
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="you@example.com"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              id="loginPassword"
+              type="password"
+              placeholder="••••••••"
+            >
+          </div>
+
+          <button class="btn btn-primary full" onclick="login()">
+            Sign in
+          </button>
+
+          <p style="margin-top:13px;color:#666;font-size:10px;">
+            Demo account interface. Connect this form to your
+            production authentication provider before launch.
+          </p>
+
+        </div>
+
+
+        <div id="registerForm" style="display:none">
+
+          <div class="form-group">
+            <label>Full name</label>
+            <input
+              id="registerName"
+              placeholder="Your name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="you@example.com"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Create a password"
+            >
+          </div>
+
+          <button class="btn btn-primary full" onclick="register()">
+            Create account
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- CUSTOMER DASHBOARD -->
+
+      <div id="accountDashboard" class="account-dashboard">
+
+        <div class="account-welcome">
+
+          <div>
+            <div class="eyebrow">MY FACES</div>
+            <h3 id="welcomeName">Welcome back.</h3>
+          </div>
+
+          <button class="btn btn-outline" onclick="logout()">
+            Log out
+          </button>
+
+        </div>
+
+
+        <div class="account-layout">
+
+          <div class="account-nav">
+
+            <button
+              class="active"
+              onclick="accountSection('accountOverview',this)"
+            >
+              Overview
+            </button>
+
+            <button
+              onclick="accountSection('accountOrders',this)"
+            >
+              My orders
+            </button>
+
+            <button
+              onclick="accountSection('accountTracking',this)"
+            >
+              Track order
+            </button>
+
+            <button
+              onclick="accountSection('accountDetails',this)"
+            >
+              My details
+            </button>
+
+          </div>
+
+
+          <div>
+
+            <!-- OVERVIEW -->
+
+            <div
+              class="account-panel account-section"
+              id="accountOverview"
+            >
+
+              <h3>Overview</h3>
+
+              <div class="stats">
+
+                <div class="stat">
+                  <small>Total orders</small>
+                  <strong id="statOrders">0</strong>
+                </div>
+
+                <div class="stat">
+                  <small>In delivery</small>
+                  <strong id="statTransit">0</strong>
+                </div>
+
+                <div class="stat">
+                  <small>Account</small>
+                  <strong>Active</strong>
+                </div>
+
+              </div>
+
+              <p style="color:var(--muted);font-size:13px;">
+                Your FACES account is where you can see your orders
+                and follow delivery progress.
+              </p>
+
+            </div>
+
+
+            <!-- ORDERS -->
+
+            <div
+              class="account-panel account-section"
+              id="accountOrders"
+              style="display:none"
+            >
+
+              <h3>My orders</h3>
+
+              <div id="ordersList"></div>
+
+            </div>
+
+
+            <!-- TRACKING -->
+
+            <div
+              class="account-panel account-section"
+              id="accountTracking"
+              style="display:none"
+            >
+
+              <h3>Track your order</h3>
+
+              <div id="trackingContent"></div>
+
+            </div>
+
+
+            <!-- DETAILS -->
+
+            <div
+              class="account-panel account-section"
+              id="accountDetails"
+              style="display:none"
+            >
+
+              <h3>My details</h3>
+
+              <div class="form-group">
+                <label>Full name</label>
+                <input id="accountName">
+              </div>
+
+              <div class="form-group">
+                <label>Email</label>
+                <input id="accountEmail" type="email">
+              </div>
+
+              <button class="btn btn-primary" onclick="saveDetails()">
+                Save changes
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     PRODUCT MODAL
+========================= -->
+
+<div class="overlay" id="productOverlay">
+
+  <div class="modal">
+
+    <div class="modal-header">
+      <h2 id="productModalTitle">Product</h2>
+      <button class="close" onclick="closeOverlay('productOverlay')">×</button>
+    </div>
+
+    <div class="modal-content">
+
+      <div
+        style="
+          height:260px;
+          border-radius:20px;
+          display:grid;
+          place-items:center;
+          background:
+          radial-gradient(circle at 50% 40%,rgba(219,194,151,.24),transparent 25%),
+          linear-gradient(135deg,#29251f,#111);
+          margin-bottom:22px;
+        "
+      >
+        <div class="product-art"></div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:8px;">
+        FACES COLLECTION
+      </div>
+
+      <h2
+        id="productModalName"
+        style="
+          font-family:'Playfair Display',serif;
+          font-size:38px;
+          font-weight:500;
+        "
+      ></h2>
+
+      <p
+        id="productModalDescription"
+        style="
+          margin-top:12px;
+          color:var(--muted);
+          font-size:14px;
+        "
+      ></p>
+
+      <div
+        style="
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:20px;
+          margin-top:25px;
+        "
+      >
+
+        <strong
+          id="productModalPrice"
+          style="font-size:20px;"
+        ></strong>
+
+        <button
+          id="productModalButton"
+          class="btn btn-primary"
+        >
+          Add to basket
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div class="overlay" id="cartOverlay">
+
+  <div class="modal">
+
+    <div class="modal-header">
+      <h2>Your basket</h2>
+      <button class="close" onclick="closeOverlay('cartOverlay')">×</button>
+    </div>
+
+    <div class="modal-content">
+
+      <div id="cartItems"></div>
+
+      <div class="cart-bottom">
+        <strong>Total</strong>
+        <strong id="cartTotal">£0.00</strong>
+      </div>
+
+      <button
+        class="btn btn-primary full"
+        style="margin-top:20px;"
+        onclick="startCheckout()"
+      >
+        Continue to checkout →
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CHECKOUT
+========================= -->
+
+<div class="overlay" id="checkoutOverlay">
+
+  <div class="modal large">
+
+    <div class="modal-header">
+      <h2>Checkout</h2>
+      <button class="close" onclick="closeOverlay('checkoutOverlay')">×</button>
+    </div>
+
+    <div class="modal-content">
+
+      <div class="checkout-grid">
+
+        <div class="checkout-card">
+
+          <h3>Delivery details</h3>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>First name</label>
+              <input id="checkoutFirstName">
+            </div>
+
+            <div class="form-group">
+              <label>Last name</label>
+              <input id="checkoutLastName">
+            </div>
+
+            <div class="form-group full-width">
+              <label>Email</label>
+              <input id="checkoutEmail" type="email">
+            </div>
+
+            <div class="form-group full-width">
+              <label>Address</label>
+              <input id="checkoutAddress">
+            </div>
+
+            <div class="form-group">
+              <label>City</label>
+              <input id="checkoutCity">
+            </div>
+
+            <div class="form-group">
+              <label>Postcode</label>
+              <input id="checkoutPostcode">
+            </div>
+
+          </div>
+
+          <p style="color:#666;font-size:10px;margin-top:5px;">
+            Payment details should be collected by your payment
+            provider rather than stored directly by this website.
+          </p>
+
+        </div>
+
+
+        <div class="checkout-card checkout-summary">
+
+          <h3>Your order</h3>
+
+          <div id="checkoutSummary"></div>
+
+          <div class="summary-total">
+            <strong>Total</strong>
+            <strong id="checkoutTotal">£0.00</strong>
+          </div>
+
+          <button
+            class="btn btn-primary full"
+            style="margin-top:20px;"
+            onclick="placeOrder()"
+          >
+            Place order →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     ORDER SUCCESS
+========================= -->
+
+<div class="overlay" id="successOverlay">
+
+  <div class="modal">
+
+    <div class="modal-content" style="text-align:center;padding:45px 30px;">
+
+      <div
+        style="
+          width:70px;
+          height:70px;
+          margin:0 auto 22px;
+          border-radius:50%;
+          display:grid;
+          place-items:center;
+          background:rgba(142,184,154,.12);
+          color:var(--green);
+          font-size:30px;
+        "
+      >
+        ✓
+      </div>
+
+      <div class="eyebrow" style="justify-content:center;">
+        ORDER CONFIRMED
+      </div>
+
+      <h2
+        style="
+          font-family:'Playfair Display',serif;
+          font-size:40px;
+          font-weight:500;
+        "
+      >
+        Thank you.
+      </h2>
+
+      <p
+        id="successMessage"
+        style="
+          max-width:470px;
+          margin:13px auto 25px;
+          color:var(--muted);
+          font-size:13px;
+        "
+      ></p>
+
+      <button class="btn btn-primary" onclick="openAccountFromSuccess()">
+        View my order →
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CHAT
+========================= -->
+
+<button
+  class="chat-launcher"
+  onclick="toggleChat()"
+  aria-label="Open FACES AI"
+>
+  ✦
+</button>
+
+<div class="chat-window" id="chatWindow">
+
+  <div class="chat-head">
+
+    <div class="ai-avatar">F</div>
+
+    <div>
+      <strong>FACES AI</strong>
+      <small>● Online</small>
+    </div>
+
+    <button class="chat-close" onclick="toggleChat()">×</button>
+
+  </div>
+
+
+  <div class="chat-messages" id="chatMessages">
+
+    <div class="message ai">
+      Hi — I'm the FACES assistant. I can help with products,
+      orders, delivery, accounts and general FACES questions.
+    </div>
+
+    <div class="message ai">
+      For medical advice or treatment decisions, please speak
+      with an appropriately qualified healthcare professional.
+    </div>
+
+  </div>
+
+
+  <div class="chat-input">
+
+    <input
+      id="chatInput"
+      placeholder="Ask FACES..."
+      onkeydown="if(event.key==='Enter')sendMessage()"
+    >
+
+    <button onclick="sendMessage()">↑</button>
+
+  </div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+/* ============================================================
+   FACES CUSTOMER STOREFRONT
+   ============================================================
+
+   FRONTEND DEMO ONLY.
+
+   Production connections to add:
+   - Authentication provider
+   - Database
+   - Payment provider
+   - Email service
+   - Shipping/carrier API
+   - Real AI endpoint
+
+   ORDER EMAIL:
+   akhonzadafarook@gmail.com
+
+   IMPORTANT:
+   Never put payment credentials, email API keys or AI API
+   keys directly inside this browser JavaScript.
+============================================================ */
+
+
+/* =========================
+   PRODUCT DATA
+========================= */
+
+const products = [
+
+  {
+    id:1,
+    name:"FACES Skin Hydration",
+    category:"skin",
+    type:"SKINCARE",
+    price:48,
+    description:"A refined hydration essential for everyday skincare routines."
+  },
+
+  {
+    id:2,
+    name:"FACES Recovery Serum",
+    category:"skin",
+    type:"SKINCARE",
+    price:62,
+    description:"A lightweight skincare essential designed for simple routines."
+  },
+
+  {
+    id:3,
+    name:"FACES Daily Cleanse",
+    category:"skin",
+    type:"SKINCARE",
+    price:34,
+    description:"A gentle everyday cleansing essential."
+  },
+
+  {
+    id:4,
+    name:"FACES Glow Cream",
+    category:"beauty",
+    type:"BEAUTY",
+    price:55,
+    description:"A rich finishing cream for a polished skincare routine."
+  },
+
+  {
+    id:5,
+    name:"FACES Treatment Pack",
+    category:"essentials",
+    type:"ESSENTIALS",
+    price:35,
+    description:"A practical collection of FACES everyday treatment essentials."
+  },
+
+  {
+    id:6,
+    name:"FACES Clinic Essentials",
+    category:"essentials",
+    type:"ESSENTIALS",
+    price:85,
+    description:"A carefully selected collection of useful everyday essentials."
+  }
+
+];
+
+
+/* =========================
+   STATE
+========================= */
+
+let cart =
+  JSON.parse(localStorage.getItem("facesCart") || "[]");
+
+let account =
+  JSON.parse(localStorage.getItem("facesAccount") || "null");
+
+let orders =
+  JSON.parse(localStorage.getItem("facesOrders") || "[]");
+
+let currentProduct = null;
+
+
+/* =========================
+   INIT
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  renderProducts();
+  updateCartCount();
+
+  if(account){
+    refreshAccountUI();
+  }
+
+});
+
+
+/* =========================
+   HEADER
+========================= */
+
+window.addEventListener("scroll", () => {
+
+  document
+    .getElementById("header")
+    .classList.toggle("scrolled",window.scrollY > 20);
+
+});
+
+
+function focusSearch(){
+
+  document
+    .getElementById("shop")
+    .scrollIntoView({behavior:"smooth"});
+
+  setTimeout(() => {
+    document
+      .getElementById("searchInput")
+      .focus();
+  },500);
+
+}
+
+
+function toggleMobileNav(){
+
+  toast("Mobile navigation can be connected to your menu drawer.");
+
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+function renderProducts(){
+
+  const search =
+    document
+      .getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const category =
+    document
+      .getElementById("categoryFilter")
+      .value;
+
+
+  const filtered = products.filter(product => {
+
+    const text =
+      `${product.name} ${product.description} ${product.type}`
+        .toLowerCase();
+
+    return (
+      text.includes(search) &&
+      (category === "all" || product.category === category)
+    );
+
+  });
+
+
+  const container =
+    document.getElementById("products");
+
+
+  if(!filtered.length){
+
+    container.innerHTML = `
+      <div class="empty" style="grid-column:1/-1;">
+        No products matched your search.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    filtered.map(product => `
+
+      <article class="product">
+
+        <div
+          class="product-image"
+          onclick="openProduct(${product.id})"
+          style="cursor:pointer"
+        >
+
+          <div class="product-tag">
+            ${product.type}
+          </div>
+
+          <div class="product-art"></div>
+
+        </div>
+
+        <div class="product-body">
+
+          <span class="product-type">
+            ${product.category}
+          </span>
+
+          <h3>${escapeHTML(product.name)}</h3>
+
+          <p>${escapeHTML(product.description)}</p>
+
+          <div class="product-footer">
+
+            <span class="price">
+              £${product.price.toFixed(2)}
+            </span>
+
+            <button
+              class="product-btn"
+              onclick="addToCart(${product.id})"
+            >
+              Add
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    `).join("");
+
+}
+
+
+function openProduct(id){
+
+  const product =
+    products.find(item => item.id === id);
+
+  if(!product) return;
+
+  currentProduct = product;
+
+  document.getElementById("productModalTitle").textContent =
+    product.type;
+
+  document.getElementById("productModalName").textContent =
+    product.name;
+
+  document.getElementById("productModalDescription").textContent =
+    product.description;
+
+  document.getElementById("productModalPrice").textContent =
+    `£${product.price.toFixed(2)}`;
+
+  document.getElementById("productModalButton").onclick = () => {
+
+    addToCart(product.id);
+
+    closeOverlay("productOverlay");
+
+  };
+
+
+  openOverlay("productOverlay");
+
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function addToCart(id){
+
+  const product =
+    products.find(item => item.id === id);
+
+  if(!product) return;
+
+
+  const existing =
+    cart.find(item => item.id === id);
+
+
+  if(existing){
+
+    existing.qty += 1;
+
+  }else{
+
+    cart.push({
+      id:id,
+      qty:1
+    });
+
+  }
+
+
+  saveCart();
+
+  toast(`${product.name} added to basket.`);
+
+}
+
+
+function saveCart(){
+
+  localStorage.setItem(
+    "facesCart",
+    JSON.stringify(cart)
+  );
+
+  updateCartCount();
+
+}
+
+
+function updateCartCount(){
+
+  const count =
+    cart.reduce(
+      (total,item) => total + item.qty,
+      0
+    );
+
+  document.getElementById("cartCount").textContent =
+    count;
+
+}
+
+
+function changeQuantity(id,direction){
+
+  const item =
+    cart.find(item => item.id === id);
+
+  if(!item) return;
+
+  item.qty += direction;
+
+  if(item.qty <= 0){
+
+    cart =
+      cart.filter(item => item.id !== id);
+
+  }
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(item => item.id !== id);
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+function openCart(){
+
+  renderCart();
+
+  openOverlay("cartOverlay");
+
+}
+
+
+function renderCart(){
+
+  const container =
+    document.getElementById("cartItems");
+
+
+  if(!cart.length){
+
+    container.innerHTML = `
+      <div class="empty">
+        Your basket is empty.
+      </div>
+    `;
+
+    document.getElementById("cartTotal").textContent =
+      "£0.00";
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+
+  container.innerHTML =
+    cart.map(item => {
+
+      const product =
+        products.find(p => p.id === item.id);
+
+      const line =
+        product.price * item.qty;
+
+      total += line;
+
+
+      return `
+
+        <div class="cart-item">
+
+          <div class="cart-thumb"></div>
+
+          <div class="cart-info">
+
+            <strong>
+              ${escapeHTML(product.name)}
+            </strong>
+
+            <small>
+              £${product.price.toFixed(2)}
+            </small>
+
+          </div>
+
+          <div class="qty">
+
+            <button
+              onclick="changeQuantity(${product.id},-1)"
+            >
+              −
+            </button>
+
+            <span>${item.qty}</span>
+
+            <button
+              onclick="changeQuantity(${product.id},1)"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  document.getElementById("cartTotal").textContent =
+    `£${total.toFixed(2)}`;
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function startCheckout(){
+
+  if(!cart.length){
+
+    toast("Your basket is empty.");
+
+    return;
+
+  }
+
+
+  closeOverlay("cartOverlay");
+
+
+  if(account){
+
+    document.getElementById("checkoutEmail").value =
+      account.email || "";
+
+    const nameParts =
+      (account.name || "").split(" ");
+
+    document.getElementById("checkoutFirstName").value =
+      nameParts.shift() || "";
+
+    document.getElementById("checkoutLastName").value =
+      nameParts.join(" ");
+
+  }
+
+
+  renderCheckout();
+
+  openOverlay("checkoutOverlay");
+
+}
+
+
+function renderCheckout(){
+
+  let total = 0;
+
+
+  document.getElementById("checkoutSummary").innerHTML =
+    cart.map(item => {
+
+      const product =
+        products.find(p => p.id === item.id);
+
+      const line =
+        product.price * item.qty;
+
+      total += line;
+
+
+      return `
+
+        <div class="summary-line">
+          <span>
+            ${escapeHTML(product.name)} × ${item.qty}
+          </span>
+
+          <strong>
+            £${line.toFixed(2)}
+          </strong>
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  document.getElementById("checkoutTotal").textContent =
+    `£${total.toFixed(2)}`;
+
+}
+
+
+function placeOrder(){
+
+  const firstName =
+    document.getElementById("checkoutFirstName").value.trim();
+
+  const lastName =
+    document.getElementById("checkoutLastName").value.trim();
+
+  const email =
+    document.getElementById("checkoutEmail").value.trim();
+
+  const address =
+    document.getElementById("checkoutAddress").value.trim();
+
+  const city =
+    document.getElementById("checkoutCity").value.trim();
+
+  const postcode =
+    document.getElementById("checkoutPostcode").value.trim();
+
+
+  if(
+    !firstName ||
+    !lastName ||
+    !email ||
+    !address ||
+    !city ||
+    !postcode
+  ){
+
+    toast("Please complete your delivery details.");
+
+    return;
+
+  }
+
+
+  const orderNumber =
+    "FAC-" +
+    Math.floor(
+      100000 + Math.random() * 899999
+    );
+
+
+  const total =
+    cart.reduce((sum,item) => {
+
+      const product =
+        products.find(p => p.id === item.id);
+
+      return sum + product.price * item.qty;
+
+    },0);
+
+
+  const order = {
+
+    id:orderNumber,
+
+    date:new Date().toLocaleDateString(
+      "en-GB",
+      {
+        day:"2-digit",
+        month:"short",
+        year:"numeric"
+      }
+    ),
+
+    customer:{
+      firstName,
+      lastName,
+      email,
+      address,
+      city,
+      postcode
+    },
+
+    items:[...cart],
+
+    total,
+
+    status:"Processing",
+
+    trackingNumber:null,
+
+    carrier:null
+
+  };
+
+
+  orders.unshift(order);
+
+
+  localStorage.setItem(
+    "facesOrders",
+    JSON.stringify(orders)
+  );
+
+
+  if(!account){
+
+    account = {
+      name:`${firstName} ${lastName}`,
+      email
+    };
+
+    localStorage.setItem(
+      "facesAccount",
+      JSON.stringify(account)
+    );
+
+  }
+
+
+  /*
+    PRODUCTION EMAIL HOOK
+
+    Your backend should send the new-order notification to:
+
+    akhonzadafarook@gmail.com
+
+    Example server request:
+
+    POST /api/orders
+
+    {
+      orderNumber,
+      customer,
+      items,
+      total
+    }
+
+    The backend then emails your order inbox.
+
+    DO NOT send email credentials from this browser.
+  */
+
+
+  cart = [];
+
+  saveCart();
+
+
+  closeOverlay("checkoutOverlay");
+
+
+  document.getElementById("successMessage").textContent =
+    `Your order ${orderNumber} has been received. `
+    + `You can view its status from your FACES account.`;
+
+
+  openOverlay("successOverlay");
+
+}
+
+
+function openAccountFromSuccess(){
+
+  closeOverlay("successOverlay");
+
+  openAccount();
+
+  setTimeout(() => {
+
+    accountSection(
+      "accountOrders",
+      document.querySelector(
+        '.account-nav button:nth-child(2)'
+      )
+    );
+
+  },100);
+
+}
+
+
+/* =========================
+   ACCOUNT
+========================= */
+
+function openAccount(){
+
+  openOverlay("accountOverlay");
+
+
+  if(account){
+
+    document.getElementById("authArea").style.display =
+      "none";
+
+    document
+      .getElementById("accountDashboard")
+      .classList.add("active");
+
+    refreshAccountUI();
+
+  }else{
+
+    document.getElementById("authArea").style.display =
+      "block";
+
+    document
+      .getElementById("accountDashboard")
+      .classList.remove("active");
+
+  }
+
+}
+
+
+function switchAuth(type,button){
+
+  document
+    .querySelectorAll(".account-tab")
+    .forEach(tab =>
+      tab.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+
+  document.getElementById("loginForm").style.display =
+    type === "login"
+      ? "block"
+      : "none";
+
+  document.getElementById("registerForm").style.display =
+    type === "register"
+      ? "block"
+      : "none";
+
+}
+
+
+function login(){
+
+  const email =
+    document.getElementById("loginEmail").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+
+  if(!email || !password){
+
+    toast("Enter your email and password.");
+
+    return;
+
+  }
+
+
+  /*
+    Production:
+    Replace this with a POST /api/login request.
+  */
+
+  account = {
+
+    name:email
+      .split("@")[0]
+      .replace(/[._-]/g," "),
+
+    email
+
+  };
+
+
+  localStorage.setItem(
+    "facesAccount",
+    JSON.stringify(account)
+  );
+
+
+  toast("Welcome back.");
+
+  refreshAccountUI();
+
+}
+
+
+function register(){
+
+  const name =
+    document.getElementById("registerName").value.trim();
+
+  const email =
+    document.getElementById("registerEmail").value.trim();
+
+  const password =
+    document.getElementById("registerPassword").value;
+
+
+  if(!name || !email || !password){
+
+    toast("Please complete all fields.");
+
+    return;
+
+  }
+
+
+  /*
+    Production:
+    Passwords must NEVER be stored in localStorage.
+    Send them over HTTPS to your authentication backend.
+  */
+
+
+  account = {
+    name,
+    email
+  };
+
+
+  localStorage.setItem(
+    "facesAccount",
+    JSON.stringify(account)
+  );
+
+
+  toast("Your FACES account has been created.");
+
+  refreshAccountUI();
+
+}
+
+
+function refreshAccountUI(){
+
+  if(!account) return;
+
+
+  document.getElementById("authArea").style.display =
+    "none";
+
+  document
+    .getElementById("accountDashboard")
+    .classList.add("active");
+
+
+  document.getElementById("welcomeName").textContent =
+    `Welcome back, ${account.name}.`;
+
+
+  document.getElementById("accountName").value =
+    account.name || "";
+
+  document.getElementById("accountEmail").value =
+    account.email || "";
+
+
+  renderOrders();
+
+  renderTracking();
+
+}
+
+
+function logout(){
+
+  account = null;
+
+  localStorage.removeItem("facesAccount");
+
+  document
+    .getElementById("accountDashboard")
+    .classList.remove("active");
+
+  document.getElementById("authArea").style.display =
+    "block";
+
+  toast("You've been logged out.");
+
+}
+
+
+function saveDetails(){
+
+  const name =
+    document.getElementById("accountName").value.trim();
+
+  const email =
+    document.getElementById("accountEmail").value.trim();
+
+
+  if(!name || !email){
+
+    toast("Please complete your details.");
+
+    return;
+
+  }
+
+
+  account.name = name;
+  account.email = email;
+
+
+  localStorage.setItem(
+    "facesAccount",
+    JSON.stringify(account)
+  );
+
+
+  document.getElementById("welcomeName").textContent =
+    `Welcome back, ${account.name}.`;
+
+
+  toast("Your details have been saved.");
+
+}
+
+
+function accountSection(id,button){
+
+  document
+    .querySelectorAll(".account-section")
+    .forEach(section => {
+
+      section.style.display = "none";
+
+    });
+
+
+  document.getElementById(id).style.display =
+    "block";
+
+
+  document
+    .querySelectorAll(".account-nav button")
+    .forEach(item =>
+      item.classList.remove("active")
+    );
+
+
+  if(button){
+    button.classList.add("active");
+  }
+
+
+  if(id === "accountOrders"){
+    renderOrders();
+  }
+
+  if(id === "accountTracking"){
+    renderTracking();
+  }
+
+}
+
+
+function renderOrders(){
+
+  const container =
+    document.getElementById("ordersList");
+
+
+  if(!orders.length){
+
+    container.innerHTML = `
+      <div class="empty">
+        You haven't placed an order yet.
+        <br><br>
+        <a
+          href="#shop"
+          onclick="closeOverlay('accountOverlay')"
+          style="color:var(--gold2)"
+        >
+          Explore the collection →
+        </a>
+      </div>
+    `;
+
+  }else{
+
+    container.innerHTML =
+      orders.map(order => `
+
+        <div class="order-card">
+
+          <div class="order-info">
+
+            <strong>
+              ${order.id}
+            </strong>
+
+            <small>
+              ${order.date} · ${order.items.length} item(s)
+            </small>
+
+            <div style="margin-top:5px;">
+              £${order.total.toFixed(2)}
+            </div>
+
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px;">
+
+            <span class="status ${getStatusClass(order.status)}">
+              ${order.status}
+            </span>
+
+            <button
+              class="product-btn"
+              onclick="showOrderTracking('${order.id}')"
+            >
+              Track
+            </button>
+
+          </div>
+
+        </div>
+
+      `).join("");
+
+  }
+
+
+  document.getElementById("statOrders").textContent =
+    orders.length;
+
+
+  document.getElementById("statTransit").textContent =
+    orders.filter(
+      order =>
+        order.status !== "Delivered"
+    ).length;
+
+}
+
+
+function showOrderTracking(orderId){
+
+  const button =
+    document.querySelector(
+      '.account-nav button:nth-child(3)'
+    );
+
+  accountSection(
+    "accountTracking",
+    button
+  );
+
+
+  const order =
+    orders.find(item => item.id === orderId);
+
+
+  renderTracking(order);
+
+}
+
+
+function renderTracking(selectedOrder = null){
+
+  const container =
+    document.getElementById("trackingContent");
+
+
+  if(!orders.length){
+
+    container.innerHTML = `
+      <div class="empty">
+        No orders to track yet.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  const order =
+    selectedOrder || orders[0];
+
+
+  const stage =
+    getTrackingStage(order.status);
+
+
+  container.innerHTML = `
+
+    <div class="tracking-summary">
+
+      <strong>${order.id}</strong>
+
+      <p>
+        ${order.status}
+        ${order.trackingNumber
+          ? ` · ${order.trackingNumber}`
+          : ""
+        }
+      </p>
+
+    </div>
+
+    <div class="tracking">
+
+      <div class="track-step ${stage >= 1 ? "done" : ""}">
+        <div class="track-dot"></div>
+        <span>Order placed</span>
+      </div>
+
+      <div class="track-step ${stage >= 2 ? "done" : ""}">
+        <div class="track-dot"></div>
+        <span>Processing</span>
+      </div>
+
+      <div class="track-step ${stage >= 3 ? "done" : ""}">
+        <div class="track-dot"></div>
+        <span>Dispatched</span>
+      </div>
+
+      <div class="track-step ${stage >= 4 ? "done" : ""}">
+        <div class="track-dot"></div>
+        <span>Delivered</span>
+      </div>
+
+    </div>
+
+    ${
+      order.trackingNumber
+        ? `
+          <div style="margin-top:20px;color:var(--muted);font-size:12px;">
+            Carrier:
+            <strong style="color:white;">
+              ${order.carrier || "Delivery partner"}
+            </strong>
+            <br>
+            Tracking:
+            <strong style="color:var(--gold2);">
+              ${order.trackingNumber}
+            </strong>
+          </div>
+        `
+        : `
+          <p style="color:var(--muted);font-size:12px;">
+            Tracking information will appear here once your
+            order has been dispatched.
+          </p>
+        `
+    }
+
+  `;
+
+}
+
+
+function getTrackingStage(status){
+
+  switch(status){
+
+    case "Processing":
+      return 2;
+
+    case "Dispatched":
+      return 3;
+
+    case "Delivered":
+      return 4;
+
+    default:
+      return 1;
+
+  }
+
+}
+
+
+function getStatusClass(status){
+
+  if(status === "Delivered"){
+    return "delivered";
+  }
+
+  if(status === "Dispatched"){
+    return "transit";
+  }
+
+  return "processing";
+
+}
+
+
+/* =========================
+   MODALS
+========================= */
+
+function openOverlay(id){
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  document.body.classList.add("no-scroll");
+
+}
+
+
+function closeOverlay(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("active");
+
+  if(
+    !document.querySelector(".overlay.active")
+  ){
+
+    document.body.classList.remove("no-scroll");
+
+  }
+
+}
+
+
+document
+  .querySelectorAll(".overlay")
+  .forEach(overlay => {
+
+    overlay.addEventListener("click",event => {
+
+      if(event.target === overlay){
+
+        closeOverlay(overlay.id);
+
+      }
+
+    });
+
+  });
+
+
+/* =========================
+   CHAT
+========================= */
+
+function toggleChat(){
+
+  document
+    .getElementById("chatWindow")
+    .classList.toggle("active");
+
+}
+
+
+function addChatMessage(text,type){
+
+  const messages =
+    document.getElementById("chatMessages");
+
+  const message =
+    document.createElement("div");
+
+  message.className =
+    `message ${type}`;
+
+  message.textContent =
+    text;
+
+  messages.appendChild(message);
+
+  messages.scrollTop =
+    messages.scrollHeight;
+
+}
+
+
+function sendMessage(){
+
+  const input =
+    document.getElementById("chatInput");
+
+  const text =
+    input.value.trim();
+
+
+  if(!text) return;
+
+
+  addChatMessage(text,"user");
+
+  input.value = "";
+
+
+  setTimeout(() => {
+
+    addChatMessage(
+      generateAIResponse(text),
+      "ai"
+    );
+
+  },450);
+
+}
+
+
+/*
+  This is deliberately a local demo response engine.
+
+  For the real FACES AI:
+      POST /api/chat
+
+  Your server should call your AI provider and return the response.
+
+  NEVER expose an AI API key in this browser file.
+*/
+
+function generateAIResponse(text){
+
+  const message =
+    text.toLowerCase();
+
+
+  if(
+    message.includes("track") ||
+    message.includes("delivery") ||
+    message.includes("where is my order")
+  ){
+
+    if(account && orders.length){
+
+      const order = orders[0];
+
+      return `
+Your latest order is ${order.id} and its current status is "${order.status}".
+
+You can see the full tracking timeline by opening your FACES Account → Track order.
+      `.trim();
+
+    }
+
+    return `
+You can track an order through your FACES Account → My orders.
+Once an order is dispatched, available carrier tracking will appear there.
+    `.trim();
+
+  }
+
+
+  if(
+    message.includes("order") ||
+    message.includes("buy") ||
+    message.includes("checkout")
+  ){
+
+    return `
+You can browse the FACES collection, add products to your basket
+and continue to checkout. After ordering, your order status will
+be available through your FACES Account.
+    `.trim();
+
+  }
+
+
+  if(
+    message.includes("return") ||
+    message.includes("refund")
+  ){
+
+    return `
+Returns and refunds depend on the product and its condition.
+Before launch, connect this answer to the official FACES returns
+policy so customers always receive the current policy.
+    `.trim();
+
+  }
+
+
+  if(
+    message.includes("account") ||
+    message.includes("login") ||
+    message.includes("sign in")
+  ){
+
+    return `
+Tap the account icon at the top of the website. Your FACES account
+lets you view orders, track deliveries and update your details.
+    `.trim();
+
+  }
+
+
+  if(
+    message.includes("botox") ||
+    message.includes("toxin") ||
+    message.includes("injectable") ||
+    message.includes("medicine")
+  ){
+
+    return `
+For prescription medicines or medical treatment questions, I can't
+diagnose, prescribe or recommend an individual treatment.
+
+Please speak with an appropriately qualified healthcare professional.
+    `.trim();
+
+  }
+
+
+  if(
+    message.includes("hello") ||
+    message.includes("hi") ||
+    message.includes("hey")
+  ){
+
+    return `
+Hey 👋 Welcome to FACES.
+
+I can help with products, orders, delivery, accounts and general
+questions about the FACES website.
+    `.trim();
+
+  }
+
+
+  return `
+I can help with FACES products, shopping, orders, delivery and
+your customer account.
+
+What would you like help with?
+  `.trim();
+
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+function toggleFAQ(button){
+
+  const faq =
+    button.parentElement;
+
+  faq.classList.toggle("open");
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function toast(message){
+
+  const element =
+    document.getElementById("toast");
+
+  element.textContent =
+    message;
+
+  element.classList.add("show");
+
+
+  clearTimeout(window.toastTimer);
+
+
+  window.toastTimer =
+    setTimeout(() => {
+
+      element.classList.remove("show");
+
+    },3000);
+
+}
+
+
+/* =========================
+   SECURITY / HTML HELPER
+========================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+</script>
+
+</body>
+</html>
