@@ -3182,159 +3182,119 @@ function renderCheckout(){
 }
 
 
-function placeOrder(){
+async function placeOrder(){
 
-  const firstName =
-    document.getElementById("checkoutFirstName").value.trim();
+  if(window.facesOrderSubmitting) return;
 
-  const lastName =
-    document.getElementById("checkoutLastName").value.trim();
+  const firstName = document.getElementById("checkoutFirstName").value.trim();
+  const lastName = document.getElementById("checkoutLastName").value.trim();
+  const email = document.getElementById("checkoutEmail").value.trim();
+  const address = document.getElementById("checkoutAddress").value.trim();
+  const city = document.getElementById("checkoutCity").value.trim();
+  const postcode = document.getElementById("checkoutPostcode").value.trim();
 
-  const email =
-    document.getElementById("checkoutEmail").value.trim();
-
-  const address =
-    document.getElementById("checkoutAddress").value.trim();
-
-  const city =
-    document.getElementById("checkoutCity").value.trim();
-
-  const postcode =
-    document.getElementById("checkoutPostcode").value.trim();
-
-
-  if(
-    !firstName ||
-    !lastName ||
-    !email ||
-    !address ||
-    !city ||
-    !postcode
-  ){
-
+  if(!firstName || !lastName || !email || !address || !city || !postcode){
     toast("Please complete your delivery details.");
-
     return;
-
   }
 
+  if(!cart.length){
+    toast("Your basket is empty.");
+    return;
+  }
 
-  const orderNumber =
-    "FAC-" +
-    Math.floor(
-      100000 + Math.random() * 899999
-    );
-
-
-  const total =
-    cart.reduce((sum,item) => {
-
-      const product =
-        products.find(p => p.id === item.id);
-
-      return sum + product.price * item.qty;
-
-    },0);
-
+  const orderNumber = "FAC-" + Math.floor(100000 + Math.random() * 899999);
+  const total = cart.reduce((sum,item) => {
+    const product = products.find(p => p.id === item.id);
+    return sum + (product ? product.price * item.qty : 0);
+  },0);
 
   const order = {
-
     id:orderNumber,
-
-    date:new Date().toLocaleDateString(
-      "en-GB",
-      {
-        day:"2-digit",
-        month:"short",
-        year:"numeric"
-      }
-    ),
-
-    customer:{
-      firstName,
-      lastName,
-      email,
-      address,
-      city,
-      postcode
-    },
-
-    items:[...cart],
-
+    date:new Date().toLocaleDateString("en-GB", {
+      day:"2-digit", month:"short", year:"numeric"
+    }),
+    customer:{firstName,lastName,email,address,city,postcode},
+    items:cart.map(item => ({...item})),
     total,
-
     status:"Processing",
-
     trackingNumber:null,
-
     carrier:null
-
   };
 
+  const itemLines = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
+    const name = product ? product.name : `Product ${item.id}`;
+    const price = product ? product.price : 0;
+    return `${name} × ${item.qty} — £${(price * item.qty).toFixed(2)}`;
+  }).join("\n");
 
-  orders.unshift(order);
+  const message = [
+    `Order number: ${orderNumber}`,
+    `Date: ${order.date}`,
+    "",
+    "CUSTOMER DETAILS",
+    `Name: ${firstName} ${lastName}`,
+    `Email: ${email}`,
+    `Address: ${address}`,
+    `City: ${city}`,
+    `Postcode: ${postcode}`,
+    "",
+    "ORDER ITEMS",
+    itemLines,
+    "",
+    `TOTAL: £${total.toFixed(2)}`,
+    "Status: Processing"
+  ].join("\n");
 
+  window.facesOrderSubmitting = true;
+  toast("Sending your order…");
 
-  localStorage.setItem(
-    "facesOrders",
-    JSON.stringify(orders)
-  );
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/akhonzadafarook@gmail.com", {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Accept":"application/json"
+      },
+      body:JSON.stringify({
+        _subject:`FACES — New order ${orderNumber}`,
+        _template:"table",
+        name:`${firstName} ${lastName}`,
+        email:email,
+        _replyto:email,
+        order_number:orderNumber,
+        total:`£${total.toFixed(2)}`,
+        message:message
+      })
+    });
 
-
-  if(!account){
-
-    account = {
-      name:`${firstName} ${lastName}`,
-      email
-    };
-
-    localStorage.setItem(
-      "facesAccount",
-      JSON.stringify(account)
-    );
-
-  }
-
-
-  /*
-    PRODUCTION EMAIL HOOK
-
-    Your backend should send the new-order notification to:
-
-    akhonzadafarook@gmail.com
-
-    Example server request:
-
-    POST /api/orders
-
-    {
-      orderNumber,
-      customer,
-      items,
-      total
+    const result = await response.json().catch(() => ({}));
+    if(!response.ok || !(result.success === true || result.success === "true")){
+      throw new Error(result.message || "Email service did not accept the order.");
     }
 
-    The backend then emails your order inbox.
+    orders.unshift(order);
+    localStorage.setItem("facesOrders", JSON.stringify(orders));
 
-    DO NOT send email credentials from this browser.
-  */
+    if(!account){
+      account = {name:`${firstName} ${lastName}`, email};
+      localStorage.setItem("facesAccount", JSON.stringify(account));
+    }
 
+    cart = [];
+    saveCart();
+    closeOverlay("checkoutOverlay");
+    document.getElementById("successMessage").textContent =
+      `Your order ${orderNumber} has been submitted. You can view its status from your FACES account.`;
+    openOverlay("successOverlay");
 
-  cart = [];
-
-  saveCart();
-
-
-  closeOverlay("checkoutOverlay");
-
-
-  document.getElementById("successMessage").textContent =
-    `Your order ${orderNumber} has been received. `
-    + `You can view its status from your FACES account.`;
-
-
-  openOverlay("successOverlay");
-
+  } catch(error) {
+    console.error("FACES order email failed:", error);
+    toast("Order email failed. Please try again in a moment.");
+  } finally {
+    window.facesOrderSubmitting = false;
+  }
 }
 
 
