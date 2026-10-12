@@ -24,7 +24,32 @@
   --serif:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --sans:"Jost","Helvetica Neue",Arial,sans-serif;
   --ease:cubic-bezier(.2,.7,.2,1);
+  .logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
+
+.logo img {
+  display: block;
+  width: 150px;
+  height: 54px;
+  object-fit: contain;
+}
+
+footer .big img {
+  display: block;
+  width: min(240px, 100%);
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 560px) {
+  .logo img {
+    width: 120px;
+    height: 46px;
+  }
+  }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.65;color:var(--ink);background:var(--paper);overflow-x:hidden}
@@ -271,7 +296,9 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="FACES home">FACES</a>
+    <a class="logo" href="#top" aria-label="FACES home">
+  <img src="logo.png" alt="FACES logo">
+</a>
     <ul>
       <li><a class="link" href="#collection">Collection</a></li>
       <li><a class="link" href="#journey">How it works</a></li>
