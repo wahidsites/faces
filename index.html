@@ -264,6 +264,32 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
   *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .hero h1 span i{transform:none}
   .fin{opacity:1}
+  .logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo img {
+  display: block;
+  width: 150px;
+  height: 54px;
+  object-fit: contain;
+}
+
+footer .big img {
+  display: block;
+  width: min(240px, 100%);
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 560px) {
+  .logo img {
+    width: 120px;
+    height: 46px;
+  }
+}
 }
 </style>
 </head>
@@ -271,7 +297,9 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="FACES home">FACES</a>
+   <a class="logo" href="#top" aria-label="FACES home">
+  <img src="logo.png" alt="FACES logo">
+</a>
     <ul>
       <li><a class="link" href="#collection">Collection</a></li>
       <li><a class="link" href="#journey">How it works</a></li>
@@ -408,7 +436,9 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
 <footer>
   <div class="wrap">
     <div class="top">
-      <div class="big">FACES</div>
+<div class="big">
+  <img src="logo.png" alt="FACES logo" loading="lazy">
+</div>
       <div>
         <h4>Explore</h4>
         <ul>
