@@ -38,7 +38,8 @@ a{color:inherit}
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s var(--ease),backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
 .nav.solid{background:rgba(13,36,32,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--line-dark)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{font-family:var(--serif);font-size:26px;letter-spacing:.34em;text-decoration:none;color:var(--pearl);font-weight:500;padding-left:.34em}
+.logo{display:flex;align-items:center;text-decoration:none;color:var(--pearl)}
+.logo img{display:block;height:38px;width:auto;max-width:150px;object-fit:contain}
 .nav ul{display:flex;gap:34px;list-style:none;align-items:center}
 .nav a.link{color:var(--pearl);text-decoration:none;font-size:15px;letter-spacing:.04em;position:relative;padding:4px 0}
 .nav a.link::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
@@ -257,7 +258,7 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
   .steps li,.steps li+li{padding:26px 0 8px;border-left:0;border-top:1px solid var(--line-dark)}
   .steps li:first-child{border-top:0}
   .summary{padding:30px 26px}
-  .logo{font-size:22px}
+  .logo img{height:32px;max-width:125px}
   .arch{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -271,7 +272,7 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="FACES home">FACES</a>
+    <a class="logo" href="#top" aria-label="FACES home"><img src="logo.png" alt="FACES"></a>
     <ul>
       <li><a class="link" href="#collection">Collection</a></li>
       <li><a class="link" href="#journey">How it works</a></li>
